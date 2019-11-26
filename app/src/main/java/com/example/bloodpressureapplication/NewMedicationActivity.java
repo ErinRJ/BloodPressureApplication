@@ -9,8 +9,8 @@ import android.widget.EditText;
 
 public class NewMedicationActivity extends AppCompatActivity {
 
-    public EditText medName;
-    public EditText timeVal;
+    public EditText medNameField;
+    public EditText timeField;
 
     public boolean sun = false;
     public boolean mon = false;
@@ -25,6 +25,8 @@ public class NewMedicationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_medication);
+        medNameField = (EditText)findViewById(R.id.nameVal);
+        timeField = (EditText)findViewById(R.id.timeVal);
     }
 
     public void cancel(View view) {
@@ -32,6 +34,13 @@ public class NewMedicationActivity extends AppCompatActivity {
     }
 
     public void save(View view) {
+        String medName = medNameField.getText().toString();
+        String timeValue = timeField.getText().toString();
+    }
+
+    // TODO: this method will request the server to create a medication record in the db
+    public void createMedicationRecord(String name, String time) {
+
     }
 
     public void onCheckboxClicked(View view) {
