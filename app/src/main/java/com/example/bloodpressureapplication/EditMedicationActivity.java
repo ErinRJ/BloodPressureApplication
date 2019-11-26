@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.example.bloodpressureapplication.Fragments.MedicationFragment;
+
 public class EditMedicationActivity extends AppCompatActivity {
 
     public EditText medNameField;
@@ -65,7 +67,7 @@ public class EditMedicationActivity extends AppCompatActivity {
     }
 
     public void cancel(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MedicationFragment.class);
         startActivity(intent);
     }
 
@@ -83,7 +85,7 @@ public class EditMedicationActivity extends AppCompatActivity {
         // make the request to the server
 
         // after the request is sent return to main activity
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MedicationFragment.class);
         startActivity(intent);
 
     }
