@@ -2,6 +2,7 @@ package com.example.bloodpressureapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -30,16 +31,26 @@ public class NewMedicationActivity extends AppCompatActivity {
     }
 
     public void cancel(View view) {
-
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     public void save(View view) {
         String medName = medNameField.getText().toString();
         String timeValue = timeField.getText().toString();
+
+        // request the server to create record and then return to main activity
+        createMedicationRecord(medName, timeValue);
     }
 
     // TODO: this method will request the server to create a medication record in the db
     public void createMedicationRecord(String name, String time) {
+
+        // make the request to the server
+
+        // after the request is sent return to main activity
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
 
     }
 
