@@ -43,6 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onCheckboxClicked"
                 android:text="S" />
 
             <CheckBox
@@ -50,6 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onCheckboxClicked"
                 android:text="M" />
 
             <CheckBox
@@ -57,6 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onCheckboxClicked"
                 android:text="T" />
 
             <CheckBox
@@ -64,6 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onCheckboxClicked"
                 android:text="W" />
 
             <CheckBox
@@ -71,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onCheckboxClicked"
                 android:text="Th" />
 
             <CheckBox
@@ -78,6 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onCheckboxClicked"
                 android:text="F" />
 
             <CheckBox
@@ -85,6 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onCheckboxClicked"
                 android:text="Sa" />
 
         </LinearLayout>
@@ -121,6 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="cancel"
                 android:text="Cancel" />
 
             <Button
@@ -128,6 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="save"
                 android:text="Save" />
         </LinearLayout>
 
