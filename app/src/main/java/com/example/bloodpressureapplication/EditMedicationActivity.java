@@ -12,6 +12,7 @@ public class EditMedicationActivity extends AppCompatActivity {
 
     public EditText medNameField;
     public EditText timeField;
+    public CheckBox sunC, monC, tuesC, wedC, thursC, friC, satC;
 
     public boolean sun = false;
     public boolean mon = false;
@@ -25,10 +26,42 @@ public class EditMedicationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_medication);
+
+        // initialize our btns and fields
         medNameField = (EditText)findViewById(R.id.nameVal);
         timeField = (EditText)findViewById(R.id.timeVal);
+        sunC = (CheckBox)findViewById(R.id.sun);
+        monC = (CheckBox)findViewById(R.id.mon);
+        tuesC = (CheckBox)findViewById(R.id.tues);
+        wedC = (CheckBox)findViewById(R.id.wed);
+        thursC = (CheckBox)findViewById(R.id.thurs);
+        friC = (CheckBox)findViewById(R.id.fri);
+        satC = (CheckBox)findViewById(R.id.sat);
 
+        // get values passed from main activity
+        String name =  getIntent().getStringExtra("NAME");
+        String time = getIntent().getStringExtra("TIME");
 
+        // populate text fields
+        medNameField.setText(name);
+        timeField.setText(time);
+
+        sun = getIntent().getBooleanExtra("SUN", false);
+        mon = getIntent().getBooleanExtra("MON", false);
+        tues = getIntent().getBooleanExtra("TUES", false);
+        wed = getIntent().getBooleanExtra("WED", false);
+        thurs = getIntent().getBooleanExtra("THURS", false);
+        fri = getIntent().getBooleanExtra("FRI", false);
+        sat = getIntent().getBooleanExtra("Sat", false);
+
+        // set check boxes
+        sunC.setChecked(sun);
+        monC.setChecked(mon);
+        tuesC.setChecked(tues);
+        wedC.setChecked(wed);
+        thursC.setChecked(thurs);
+        friC.setChecked(fri);
+        satC.setChecked(sat);
     }
 
     public void cancel(View view) {
@@ -54,6 +87,7 @@ public class EditMedicationActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
 
     public void onCheckboxClicked(View view) {
         // Is the view now checked?
