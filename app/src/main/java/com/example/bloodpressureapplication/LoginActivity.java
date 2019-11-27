@@ -51,34 +51,35 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill in email and password", Toast.LENGTH_LONG).show();
         }
         else{
+            // TODO: set this back to false later when done testing
+            boolean authenticated = true;
 
-            boolean authenticated = false;
             //check if login information is correct against the database
             // TODO: change this to the correct url to determine if user was authenticated
-            final String url = "http://httpbin.org/get?param1=hello";
-
-            // prepare the Request
-            JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-                    new Response.Listener<JSONObject>()
-                    {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            // display response
-                            // TODO: Set authenticated to server response value
-                            Log.d("Response", response.toString());
-                        }
-                    },
-                    new Response.ErrorListener()
-                    {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.d("Error.Response", String.valueOf(error));
-                        }
-                    }
-            );
-
-            // add it to the RequestQueue
-            queue.add(getRequest);
+//            final String url = "http://httpbin.org/get?param1=hello";
+//
+//            // prepare the Request
+//            JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+//                    new Response.Listener<JSONObject>()
+//                    {
+//                        @Override
+//                        public void onResponse(JSONObject response) {
+//                            // display response
+//                            // TODO: Set authenticated to server response value
+//                            Log.d("Response", response.toString());
+//                        }
+//                    },
+//                    new Response.ErrorListener()
+//                    {
+//                        @Override
+//                        public void onErrorResponse(VolleyError error) {
+//                            Log.d("Error.Response", String.valueOf(error));
+//                        }
+//                    }
+//            );
+//
+//            // add it to the RequestQueue
+//            queue.add(getRequest);
 
             //if incorrect, send toast message that it's wrong
             if(!authenticated) {
