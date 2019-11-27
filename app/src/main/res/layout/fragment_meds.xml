@@ -10,8 +10,10 @@
         android:layout_height="fill_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,25 +23,31 @@
             <TextView
                 android:id="@+id/text_dashboard"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="65dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="Your Medications"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="24dp" />
 
             <Button
                 android:id="@+id/addMed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add Medication"
-                android:onClick="addMedication"/>
+                android:onClick="addMedication"
+                android:text="Add New Medication" />
 
             <ListView
                 android:id="@+id/medsLV"
                 android:layout_width="409dp"
-                android:layout_height="694dp" />
+                android:layout_height="682dp" />
 
         </LinearLayout>
     </ScrollView>

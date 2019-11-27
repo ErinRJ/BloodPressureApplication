@@ -15,14 +15,16 @@
         <TextView
             android:id="@+id/text_home"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="94dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:gravity="bottom"
             android:text="Insert Your Blood Pressure"
             android:textAlignment="center"
             android:textColor="#0E0E0E"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <Space
             android:layout_width="match_parent"
