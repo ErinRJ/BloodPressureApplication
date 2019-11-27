@@ -79,7 +79,7 @@
             android:layout_height="32dp" />
 
         <Button
-            android:id="@+id/submit_btn"
+            android:id="@+id/bp_submit_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SUBMIT" />
