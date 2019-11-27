@@ -14,6 +14,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
@@ -23,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     public EditText email;
     public EditText password;
     RequestQueue queue;
+    public boolean authenticated = false;
 
 
     @Override
@@ -51,46 +53,48 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill in email and password", Toast.LENGTH_LONG).show();
         }
         else{
-            // TODO: set this back to false later when done testing
-            boolean authenticated = true;
 
             //check if login information is correct against the database
-            // TODO: change this to the correct url to determine if user was authenticated
-//            final String url = "http://httpbin.org/get?param1=hello";
-//
-//            // prepare the Request
-//            JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-//                    new Response.Listener<JSONObject>()
-//                    {
-//                        @Override
-//                        public void onResponse(JSONObject response) {
-//                            // display response
-//                            // TODO: Set authenticated to server response value
-//                            Log.d("Response", response.toString());
-//                        }
-//                    },
-//                    new Response.ErrorListener()
-//                    {
-//                        @Override
-//                        public void onErrorResponse(VolleyError error) {
-//                            Log.d("Error.Response", String.valueOf(error));
-//                        }
-//                    }
-//            );
-//
-//            // add it to the RequestQueue
-//            queue.add(getRequest);
+            final String url = server.url+"authenticate"+"?email="+em+"&password="+pass;
+            Log.d("URL", url);
 
-            //if incorrect, send toast message that it's wrong
-            if(!authenticated) {
-                Toast.makeText(this, "Username or password incorrect", Toast.LENGTH_LONG).show();
-            } else {
-                //if correct start new activity with username bundled
-                Intent intent = new Intent(this, MainActivity.class);
-                //intent.putExtra("username", username);
-                startActivity(intent);
-            }
+            // prepare the Request
+            StringRequest getRequest = new StringRequest(Request.Method.GET, url,
+                    new Response.Listener<String>()
+                    {
+                        @Override
+                        public void onResponse(String response) {
+                            authenticated = Boolean.valueOf(response);
+                            Log.d("Authenticated", String.valueOf(authenticated));
+                            Log.d("Response", response);
+                            //if incorrect, send toast message that it's wrong
+                            if(!authenticated) {
+                                Toast.makeText(getApplicationContext(), "Username or password incorrect", Toast.LENGTH_LONG).show();
+                            } else {
+                                nextPage();
+                            }
+                        }
+                    },
+                    new Response.ErrorListener()
+                    {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.d("Error.Response", String.valueOf(error));
+                        }
+                    }
+            );
+
+            // add it to the RequestQueue
+            queue.add(getRequest);
+
         }
 
+    }
+
+    public void nextPage(){
+        //if correct start new activity with username bundled
+        Intent intent = new Intent(this, MainActivity.class);
+        //intent.putExtra("username", username);
+        startActivity(intent);
     }
 }
