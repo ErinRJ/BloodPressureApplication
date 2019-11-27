@@ -33,7 +33,7 @@ public class NewMedicationActivity extends AppCompatActivity {
     public boolean fri = false;
     public boolean sat = false;
 
-    RequestQueue queue = Volley.newRequestQueue(this);
+    RequestQueue queue;
 
 
     @Override
@@ -42,6 +42,7 @@ public class NewMedicationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_medication);
         medNameField = (EditText)findViewById(R.id.nameVal);
         timeField = (EditText)findViewById(R.id.timeVal);
+        queue = Volley.newRequestQueue(this);
     }
 
     public void cancel(View view) {
