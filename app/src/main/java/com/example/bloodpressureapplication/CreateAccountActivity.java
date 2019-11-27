@@ -51,9 +51,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         //make sure each section is filled out
         if(name.equals("") || email.equals("") || password.equals("")){
             Toast.makeText(this, "Please enter all three fields", Toast.LENGTH_LONG).show();
-        }
-
-        else{
+        } else {
             //send new information to the database
             // make the request to the server
             // TODO: Change this to our server url
