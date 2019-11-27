@@ -51,9 +51,10 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill in email and password", Toast.LENGTH_LONG).show();
         }
         else{
+
+            boolean authenticated = false;
             //check if login information is correct against the database
             // TODO: change this to the correct url to determine if user was authenticated
-            // TODO; server should check if password is correct and return true or false
             final String url = "http://httpbin.org/get?param1=hello";
 
             // prepare the Request
@@ -63,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             // display response
+                            // TODO: Set authenticated to server response value
                             Log.d("Response", response.toString());
                         }
                     },
@@ -79,12 +81,14 @@ public class LoginActivity extends AppCompatActivity {
             queue.add(getRequest);
 
             //if incorrect, send toast message that it's wrong
-            //Toast.makeText(this, "Username or password incorrect", Toast.LENGTH_LONG).show();
-
-            //if correct start new activity with username bundled
-            Intent intent = new Intent(this, MainActivity.class);
-            //intent.putExtra("username", username);
-            startActivity(intent);
+            if(!authenticated) {
+                Toast.makeText(this, "Username or password incorrect", Toast.LENGTH_LONG).show();
+            } else {
+                //if correct start new activity with username bundled
+                Intent intent = new Intent(this, MainActivity.class);
+                //intent.putExtra("username", username);
+                startActivity(intent);
+            }
         }
 
     }
