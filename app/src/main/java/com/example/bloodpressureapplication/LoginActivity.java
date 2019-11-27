@@ -4,20 +4,32 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 
     public EditText email;
     public EditText password;
+    RequestQueue queue;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        queue = Volley.newRequestQueue(this);
 
         email = (EditText)findViewById(R.id.email_txt);
         password = (EditText)findViewById(R.id.password_txt);
@@ -40,6 +52,31 @@ public class LoginActivity extends AppCompatActivity {
         }
         else{
             //check if login information is correct against the database
+            // TODO: change this to the correct url to determine if user was authenticated
+            // TODO; server should check if password is correct and return true or false
+            final String url = "http://httpbin.org/get?param1=hello";
+
+            // prepare the Request
+            JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                    new Response.Listener<JSONObject>()
+                    {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            // display response
+                            Log.d("Response", response.toString());
+                        }
+                    },
+                    new Response.ErrorListener()
+                    {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.d("Error.Response", String.valueOf(error));
+                        }
+                    }
+            );
+
+            // add it to the RequestQueue
+            queue.add(getRequest);
 
             //if incorrect, send toast message that it's wrong
             //Toast.makeText(this, "Username or password incorrect", Toast.LENGTH_LONG).show();
