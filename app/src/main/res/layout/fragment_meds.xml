@@ -33,7 +33,8 @@
                 android:id="@+id/addMed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add Medication" />
+                android:text="Add Medication"
+                android:onClick="addMedication"/>
 
             <ListView
                 android:id="@+id/medsLV"

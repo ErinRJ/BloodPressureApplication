@@ -1,5 +1,6 @@
 package com.example.bloodpressureapplication.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.bloodpressureapplication.NewMedicationActivity;
 import com.example.bloodpressureapplication.R;
 
 import java.util.ArrayList;
@@ -52,4 +54,6 @@ public class MedicationFragment extends Fragment {
 
         return view;
     }
+
+
 }
