@@ -4,11 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.bloodpressureapplication.Fragments.MedicationFragment;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class EditMedicationActivity extends AppCompatActivity {
 
@@ -24,10 +34,14 @@ public class EditMedicationActivity extends AppCompatActivity {
     public boolean fri = false;
     public boolean sat = false;
 
+    RequestQueue queue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_medication);
+
+        queue = Volley.newRequestQueue(this);
 
         // initialize our btns and fields
         medNameField = (EditText)findViewById(R.id.nameVal);
@@ -80,9 +94,46 @@ public class EditMedicationActivity extends AppCompatActivity {
     }
 
     // TODO: this method will request the server to create a medication record in the db
-    public void createMedicationRecord(String name, String time) {
+    public void createMedicationRecord(final String name, final String time) {
 
         // make the request to the server
+        // TODO: Change this to our server url
+        String url = "http://httpbin.org/post";
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        Log.d("Response", response);
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        Log.d("Volley Error: ", String.valueOf(error));
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("name", name);
+                params.put("time", time);
+                params.put("mon", String.valueOf(mon));
+                params.put("tues", String.valueOf(tues));
+                params.put("wed", String.valueOf(wed));
+                params.put("thurs", String.valueOf(thurs));
+                params.put("fri", String.valueOf(fri));
+                params.put("sat", String.valueOf(sat));
+
+                return params;
+            }
+        };
+        queue.add(postRequest);
 
         // after the request is sent return to main activity
         Intent intent = new Intent(this, MedicationFragment.class);
