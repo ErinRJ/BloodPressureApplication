@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="66.6"
         android:text="TextView"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -40,18 +41,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Day:"
+                android:textColor="#000000"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
                 android:text="Time:"
+                android:textColor="#000000"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
                 android:text="Notes:"
+                android:textColor="#000000"
                 android:textStyle="bold" />
 
             <TextView
@@ -59,6 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
                 android:text="Dosage:"
+                android:textColor="#000000"
                 android:textStyle="bold" />
 
             <TextView
@@ -66,6 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
                 android:text="Active:"
+                android:textColor="#000000"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -79,31 +85,36 @@
                 android:id="@+id/dayTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#000000" />
 
             <TextView
                 android:id="@+id/timeTV"
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#000000" />
 
             <TextView
                 android:id="@+id/notesTV"
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#000000" />
 
             <TextView
                 android:id="@+id/dosageTV"
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#000000" />
 
             <TextView
                 android:id="@+id/activeTV"
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#000000" />
         </LinearLayout>
 
     </LinearLayout>
