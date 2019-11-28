@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     public EditText password;
     RequestQueue queue;
     public boolean authenticated = false;
+    public String em = "";
 
 
     @Override
@@ -45,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void login(View view) {
         //check that both fields have been filled out
-        final String em = email.getText().toString();
+        em = email.getText().toString();
         String pass = password.getText().toString();
 
         //if not both filled out, notify the user
@@ -92,8 +93,36 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void nextPage(String email){
-        //set the email of the user, so it can be referenced by the other activities
-        Person.email = email;
+
+        //get the information correlating to the email for that user
+        final String url = server.url+"getClient"+"?email="+em;
+        Log.d("URL:", url);
+        StringRequest getRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("Response from server:", response);
+                        response = response.substring(2);
+                        String[] clientValues = response.split(",");
+                        Person.clientID = Integer.parseInt(clientValues[0]);
+                        Log.d("Client id:", clientValues[0]);
+                        Person.name = clientValues[1];
+                        Person.email =  clientValues[2];
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("Error.Response", String.valueOf(error));
+                    }
+                }
+        );
+
+        // add it to the RequestQueue
+        queue.add(getRequest);
+
         //if correct start new activity with username bundled
         Intent intent = new Intent(this, MainActivity.class);
         //intent.putExtra("username", username);
