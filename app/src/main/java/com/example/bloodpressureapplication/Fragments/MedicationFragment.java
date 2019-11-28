@@ -44,7 +44,7 @@ public class MedicationFragment extends Fragment {
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        Log.d("MedFrag:",Integer.toString(listOfMeds.size()));
+
 
         //Place data in Array Adaptor
         MedListAdapter medAdapter = new MedListAdapter(getContext(), R.layout.med_layout, listOfMeds);
