@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#ad251c</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#EC2A1D</color>
 
+    <!-- The colours are added above ^
     <color name="bloodPrimary">#ad251c</color>
     <color name="bloodPrimaryDark">#00574B</color>
     <color name="bloodAccent">#EC2A1D</color>
+    -->
 </resources>
