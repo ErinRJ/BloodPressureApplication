@@ -11,16 +11,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/addNewMed"
-            android:layout_width="match_parent"
-            android:layout_height="97dp"
-            android:gravity="center"
-            android:text="Add New Medication"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,8 +20,7 @@
                 android:id="@+id/med"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name:     "
-                android:textColor="#0C0C0C" />
+                android:text="Name:     " />
 
             <EditText
                 android:id="@+id/nameVal"
@@ -43,17 +32,6 @@
                 android:text="enter medication name" />
 
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="39dp" />
-
-        <TextView
-            android:id="@+id/daysToTakeMeds"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Days to Take Medications"
-            android:textColor="#070707" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -118,10 +96,6 @@
 
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="31dp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -132,8 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Time:"
-                android:textColor="#0C0C0C" />
+                android:text="Time" />
 
             <EditText
                 android:id="@+id/timeVal"
@@ -155,8 +128,7 @@
                 android:layout_width="35dp"
                 android:layout_height="29dp"
                 android:layout_weight="1"
-                android:text="Start Date:"
-                android:textColor="#0C0C0C" />
+                android:text="Start Date:" />
 
             <EditText
                 android:id="@+id/editDate"
@@ -167,10 +139,6 @@
                 android:inputType="date"
                 android:text="enter date here" />
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="34dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
