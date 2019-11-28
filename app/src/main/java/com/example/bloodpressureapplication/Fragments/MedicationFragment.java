@@ -1,12 +1,10 @@
 package com.example.bloodpressureapplication.Fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -20,7 +18,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.bloodpressureapplication.NewMedicationActivity;
 import com.example.bloodpressureapplication.R;
 import com.example.bloodpressureapplication.server;
 
@@ -65,6 +62,7 @@ public class MedicationFragment extends Fragment {
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        Log.d("MedFrag:",Integer.toString(listOfMeds.size()));
 
         //Place data in Array Adaptor
         MedListAdapter medAdapter = new MedListAdapter(getContext(), R.layout.med_layout, listOfMeds);
