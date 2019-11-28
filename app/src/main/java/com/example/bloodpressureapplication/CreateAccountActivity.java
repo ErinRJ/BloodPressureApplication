@@ -55,7 +55,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             //send new information to the database
             // make the request to the server
             // TODO: Change this to our server url
-            String url = "http://httpbin.org/post";
+            String url = server.url+"createClient"+"?name="+name+"&email="+email+"&password="+password;
             StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                     new Response.Listener<String>()
                     {

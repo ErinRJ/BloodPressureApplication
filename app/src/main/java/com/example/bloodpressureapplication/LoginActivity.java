@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void login(View view) {
         //check that both fields have been filled out
-        String em = email.getText().toString();
+        final String em = email.getText().toString();
         String pass = password.getText().toString();
 
         //if not both filled out, notify the user
@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(!authenticated) {
                                 Toast.makeText(getApplicationContext(), "Username or password incorrect", Toast.LENGTH_LONG).show();
                             } else {
-                                nextPage();
+                                nextPage(em);
                             }
                         }
                     },
@@ -91,7 +91,9 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void nextPage(){
+    public void nextPage(String email){
+        //set the email of the user, so it can be referenced by the other activities
+        Person.email = email;
         //if correct start new activity with username bundled
         Intent intent = new Intent(this, MainActivity.class);
         //intent.putExtra("username", username);
